@@ -1,10 +1,12 @@
 {
   "name": "teste_automatizado_apiserverest",
   "version": "1.0.0",
-  "description": "Automação de teste API",
+  "description": "Automação de teste API ServeRest",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx serverest",
+    "test": "cypress open",
+    "testHeadless": "cypress run"
   },
   "repository": {
     "type": "git",
