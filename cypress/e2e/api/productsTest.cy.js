@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+const productsSchema = require('../../schemas/productsSchema');
 const productActions = require('../../support/actions/productActions');
 const { gerarDadosProduto } = require("../../utils/fakerUtils");
 
@@ -49,7 +50,7 @@ describe('Testes de API - Produtos', () => {
         });
     });
 
-    it.only('Deve editar um produto com sucesso - PUT', () => {
+    it('Deve editar um produto com sucesso - PUT', () => {
         const nome = `Produto para editar - ${Date.now()}`;
         productActions.cadastrarProduto(token, nome, 10, 'Descrição original', 100)
             .then((response) => {
@@ -73,6 +74,13 @@ describe('Testes de API - Produtos', () => {
                         expect(resDel.body.message).to.equal('Registro excluído com sucesso');
                     });
             });
+    });
+
+    it('Deve validar contrato de produtos com sucesso', () => {
+        cy.request('produtos').then(response => {
+            return productsSchema.validateAsync(response.body)
+
+        })
     });
 
 });

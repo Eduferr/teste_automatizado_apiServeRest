@@ -2,6 +2,7 @@
 
 const userActions = require("../../support/actions/userActions");
 const { gerarDadosUsuario } = require("../../utils/fakerUtils");
+const usersSchema = require('../../schemas/usersSchema');
 
 // Início da suíte de testes para funcionalidades relacionadas a usuários
 describe('Suite de Teste - Funcionalidades Usuários', () => {
@@ -10,6 +11,7 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
   beforeEach(function () {
     cy.fixture('loginData').as('loginData');
   });
+  
 
   it('Deve fazer login com sucesso usando classe de ação', function () {
     const { email, password } = this.loginData.dadosUsuario;
@@ -70,6 +72,14 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
             expect(resDel.body.message).to.equal('Registro excluído com sucesso');
           });
       });
+  });
+
+
+  it('Deve validar contrato de usuários', () => {
+
+    cy.request('usuarios').then(response => {
+      return usersSchema.validateAsync(response.body)
+    })
   });
 
 

@@ -1,6 +1,7 @@
-# 🧪 Teste Automatizado – API ServeRest
+# 🧪 Testes Automatizados – API ServeRest
 
-Como prática de estudo, esta automatização tem como objetivo validar o funcionamento da API ServeRest por meio de testes funcionais e de contrato. Serão verificados os endpoints relacionados a operações de **CRUD de usuários e produtos**, bem como o processo de login, assegurando que todas as rotas estejam operando conforme o esperado. Além disso, as respostas da API serão validadas para garantir que estejam em conformidade com a estrutura e o conteúdo definidos no contrato da aplicação.
+Este projeto tem como objetivo **validar o funcionamento da API ServeRest** por meio de **testes automatizados de API**, abordando **validação funcional e de contrato**.  
+Os testes cobrem os endpoints de **usuários e produtos**, além do processo de login, garantindo que todas as rotas estejam operando conforme o esperado.
 
 ---
 
@@ -12,7 +13,6 @@ Como prática de estudo, esta automatização tem como objetivo validar o funcio
 | :----: | ----------------- | ------------------------------------ |
 |   GET  | `/usuarios`       | Listar todos os usuários cadastrados |
 |  POST  | `/usuarios`       | Cadastrar novo usuário               |
-|   GET  | `/usuarios/{_id}` | Buscar usuário por ID                |
 |   PUT  | `/usuarios/{_id}` | Editar usuário existente             |
 | DELETE | `/usuarios/{_id}` | Excluir usuário                      |
 
@@ -22,85 +22,128 @@ Como prática de estudo, esta automatização tem como objetivo validar o funcio
 | :----: | ----------------- | --------------------------- |
 |   GET  | `/produtos`       | Listar produtos cadastrados |
 |  POST  | `/produtos`       | Cadastrar novo produto      |
-|   GET  | `/produtos/{_id}` | Buscar produto por ID       |
 |   PUT  | `/produtos/{_id}` | Editar produto existente    |
 | DELETE | `/produtos/{_id}` | Excluir produto             |
 
 ---
 
-### 🎯 Objetivos dos testes
- 
-1. **Validação funcional** → Verificar se cada rota retorna o comportamento esperado e realiza corretamente as operações de CRUD.
-2. **Validação de contrato** → Confirmar se o formato da resposta JSON está de acordo com o contrato definido (campos obrigatórios, tipos de dados e estrutura).
-3. **Validação de status e mensagens** → Garantir que os status codes HTTP e mensagens retornadas sejam coerentes tanto em casos de sucesso quanto de erro.
+## 🎯 Objetivos dos Testes
+
+1. **Validação funcional** → Garante que cada rota realiza corretamente as operações de CRUD.  
+2. **Validação de contrato** → Assegura que as respostas JSON estão em conformidade com o contrato definido via **JSON Schema**.  
+3. **Validação de status e mensagens** → Verifica se os códigos de status HTTP e mensagens retornadas estão corretos em cenários de sucesso e erro.
 
 ---
 
-### ✅ Critérios de Sucesso
+## ✅ Critérios de Sucesso
 
-- Retorno correto dos status HTTP (200, 201, 400, 404);
-- Estrutura JSON válida e conforme o contrato;
-- Criação, edição e exclusão de dados persistindo corretamente;
-- IDs válidos e únicos;
-- Mensagens de erro claras e padronizadas;
-- Contrato validado automaticamente via schema (JSON Schema).
-
----
-
-### 🧩 Tecnologias Utilizadas
-
-- Node.js
-- npm
-- Cypress – para execução dos testes de API
+- Status HTTP coerentes (200, 201, 400, 404);  
+- Estrutura JSON conforme o contrato (schema validado via Joi);  
+- Criação, edição e exclusão persistindo corretamente;  
+- IDs válidos e únicos;  
+- Mensagens de erro padronizadas e consistentes.
 
 ---
 
-### 🧱Estrutura de Pastas (Sugerida)
-
+## 🧱 Estrutura de Pastas (Atual)
 ```bash
 teste_automatizado_apiServeRest/
 │
 ├── cypress/
 │   ├── e2e/
-│   │   ├── contratos/                     # Testes de contrato (validação de schema JSON)
-│   │   │   ├── produtoContrato.cy.js
-│   │   │   └── usuarioContrato.cy.js
-│   │   │
-│   │   ├── produtos/                      # Testes relacionados aos endpoints de produtos
-│   │   │   ├── deleteProdutos.cy.js
-│   │   │   ├── getProdutos.cy.js
-│   │   │   ├── postProdutos.cy.js
-│   │   │   └── putProdutos.cy.js
-│   │   │
-│   │   └── usuarios/                      # Testes relacionados aos endpoints de usuários
-│   │       ├── deleteUsuarios.cy.js
-│   │       ├── getUsuarios.cy.js
-│   │       ├── postUsuarios.cy.js
-│   │       └── putUsuarios.cy.js
+│   │   └── api/
+│   │       ├── productsTest.cy.js         # Testes de API de produtos
+│   │       └── usersTest.cy.js            # Testes de API de usuários
 │   │
-│   ├── fixtures/                          # Armazena dados estáticos e schemas JSON
-│   │   └── schemas/
-│   │       ├── produtosSchema.json
-│   │       └── usuariosSchema.json
+│   ├── fixtures/
+│   │   └── loginData.json                 # Dados fixos de login
 │   │
-│   ├── support/                           # Comandos e configurações globais do Cypress
-│   │   └── commands.js
+│   ├── schemas/
+│   │   ├── productsSchema.js              # Schema de validação para produtos
+│   │   └── usersSchema.js                 # Schema de validação para usuários
 │   │
-│   └── cypress.config.js                  # Configurações do Cypress (baseUrl, viewport, etc.)
+│   ├── support/
+│   │   ├── actions/                       # Métodos de ações e comandos reutilizáveis
+│   │   │   ├── productActions.js
+│   │   │   └── userActions.js
+│   │   ├── commands.js                    # Comandos customizados do Cypress
+│   │   └── e2e.js                         # Arquivo principal de suporte
+│   │
+│   └── utils/
+│       └── fakerUtils.js                  # Geração de dados dinâmicos (faker)
 │
-├── node_modules/                          # Dependências instaladas pelo npm
-├── package.json                           # Configurações, scripts e dependências do projeto
-├── package-lock.json                      # Controle de versão das dependências
-└── README.md                              # Documentação do projeto
-
+├── cypress.config.js                      # Configurações globais do Cypress
+├── package.json                           # Dependências e scripts do projeto
+├── package-lock.json
+└── README.md
 ```
 
 ---
 
- ### 🚀 Execução dos Testes
+## 🧩 Tecnologias Utilizadas
+```bash
+| Tecnologia    | Finalidade                                        |
+| ------------- | ------------------------------------------------- |
+| **Node.js**   | Ambiente de execução para o projeto               |
+| **npm**       | Gerenciador de pacotes                            |
+| **Cypress**   | Framework de testes automatizados                 |
+| **Faker.js**  | Geração de dados dinâmicos (nomes, e-mails, etc.) |
+| **Joi**       | Validação de contratos (schemas JSON)             |
+| **ServeRest** | API simulada utilizada nos testes                 |
+```
+---
 
-- **Instalar dependências** → npm install
-- **Instalar dependências para Cucumber** → npm install --save-dev @badeball/cypress-cucumber-preprocessor
-- **Instalar cypress** → npm install -D cypress
-- **Executar testes de API** → npx cypress open
-- **Executar no modo interativo (modo headless)** → npx cypress run
+## 💻 Pré-requisitos
+
+Antes de rodar os testes, é necessário ter instalado:
+- Node.js (versão 18 ou superior)
+- npm (instalado junto com o Node)
+- ServeRest instalado localmente
+
+
+## ⚙️ Instalação e Configuração
+
+| Etapa | Descrição | Comando |
+|:------|:-----------|:--------|
+| **1️⃣ Clonar o repositório** | Clona o projeto para o diretório local | `git clone https://github.com/seuusuario/teste_automatizado_apiServeRest.git` |
+| **2️⃣ Acessar o diretório do projeto** | Entra na pasta do projeto | `cd teste_automatizado_apiServeRest` |
+| **3️⃣ Iniciar o projeto e instalar dependências** | Cria o `package.json` e instala as dependências básicas | `npm init -y` <br> `npm install` |
+| **4️⃣ Instalar o Cypress** | Instala o framework de testes | `npm install -D cypress` |
+| **5️⃣ Instalar o Faker.js** | Gera dados dinâmicos (nomes, e-mails, etc.) | `npm install @faker-js/faker` |
+| **6️⃣ Instalar o Joi** | Faz a validação de contratos (schemas JSON) | `npm install joi` |
+| **7️⃣ Instalar o ServeRest (globalmente)** | API simulada utilizada nos testes | `npm install -g serverest` |
+| **8️⃣ Iniciar o ServeRest localmente** | Inicia o servidor local da API | `serverest` |
+|  | 🔸 O ServeRest rodará em: **http://localhost:3000** |  |
+
+---
+
+## 🚀 Execução dos Testes
+
+| Modo | Descrição | Comando |
+|:-----|:-----------|:--------|
+| **Interativo (GUI)** | Abre o painel do Cypress para visualizar os testes em execução | `npx cypress open` |
+| **Headless (terminal)** | Executa todos os testes diretamente no terminal | `npx cypress run` |
+| **Executar um teste específico** | Executa apenas o arquivo indicado | `npx cypress run --spec "cypress/e2e/api/usersTest.cy.js"` |
+| **Rodar com logs detalhados** | Mostra mais informações no terminal durante a execução | `npx cypress run --browser chrome --headed` |
+
+---
+
+## 🧠 Boas Práticas Implementadas
+
+- Arquitetura modular e organizada (actions, schemas, fixtures e utils);
+- Geração dinâmica de dados com Faker.js;
+- Validação de contrato com Joi para respostas consistentes;
+- Testes reutilizáveis e padronizados;
+- Execução automatizada via CLI (suporte para CI/CD).
+
+---
+
+## ✍️ Assinatura do QA
+
+**Eduardo Ferreira**  
+*Analista de testes*  
+🔗 *Automação de Testes | API | Cypress | JavaScript*  
+📅 Projeto desenvolvido para fins educacionais e de prática em automação de testes.
+
+---
+
