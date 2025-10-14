@@ -100,6 +100,7 @@ Antes de rodar os testes, é necessário ter instalado:
 - npm (instalado junto com o Node)
 - ServeRest instalado localmente
 
+---
 
 ## ⚙️ Instalação e Configuração
 
