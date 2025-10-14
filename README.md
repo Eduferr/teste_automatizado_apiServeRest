@@ -45,7 +45,7 @@ Os testes cobrem os endpoints de **usuários e produtos**, além do processo de 
 
 ---
 
-## 🧱 Estrutura de Pastas (Atual)
+## 🧱 Estrutura de Pastas
 ```bash
 teste_automatizado_apiServeRest/
 │
@@ -81,7 +81,7 @@ teste_automatizado_apiServeRest/
 ---
 
 ## 🧩 Tecnologias Utilizadas
-```bash
+
 | Tecnologia    | Finalidade                                        |
 | ------------- | ------------------------------------------------- |
 | **Node.js**   | Ambiente de execução para o projeto               |
@@ -90,7 +90,7 @@ teste_automatizado_apiServeRest/
 | **Faker.js**  | Geração de dados dinâmicos (nomes, e-mails, etc.) |
 | **Joi**       | Validação de contratos (schemas JSON)             |
 | **ServeRest** | API simulada utilizada nos testes                 |
-```
+
 ---
 
 ## 💻 Pré-requisitos
@@ -103,8 +103,8 @@ Antes de rodar os testes, é necessário ter instalado:
 
 ## ⚙️ Instalação e Configuração
 
-| Etapa | Descrição | Comando |
-|:------|:-----------|:--------|
+|  Etapa  |  Descrição | Comando |
+|:--------|:-----------|:--------|
 | **1️⃣ Clonar o repositório** | Clona o projeto para o diretório local | `git clone https://github.com/seuusuario/teste_automatizado_apiServeRest.git` |
 | **2️⃣ Acessar o diretório do projeto** | Entra na pasta do projeto | `cd teste_automatizado_apiServeRest` |
 | **3️⃣ Iniciar o projeto e instalar dependências** | Cria o `package.json` e instala as dependências básicas | `npm init -y` <br> `npm install` |
@@ -113,7 +113,7 @@ Antes de rodar os testes, é necessário ter instalado:
 | **6️⃣ Instalar o Joi** | Faz a validação de contratos (schemas JSON) | `npm install joi` |
 | **7️⃣ Instalar o ServeRest (globalmente)** | API simulada utilizada nos testes | `npm install -g serverest` |
 | **8️⃣ Iniciar o ServeRest localmente** | Inicia o servidor local da API | `serverest` |
-|  | 🔸 O ServeRest rodará em: **http://localhost:3000** |  |
+|  |  | 🔸 O ServeRest rodará em: **http://localhost:3000** |
 
 ---
 
