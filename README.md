@@ -106,7 +106,7 @@ Antes de rodar os testes, é necessário ter instalado:
 
 |  Etapa  |  Descrição | Comando |
 |:--------|:-----------|:--------|
-| **1️⃣ Clonar o repositório** | Clona o projeto para o diretório local | `git clone https://github.com/seuusuario/teste_automatizado_apiServeRest.git` |
+| **1️⃣ Clonar o repositório** | Clona o projeto para o diretório local | `git clone https://github.com/Eduferr/teste_automatizado_apiServeRest.git` |
 | **2️⃣ Acessar o diretório do projeto** | Entra na pasta do projeto | `cd teste_automatizado_apiServeRest` |
 | **3️⃣ Iniciar o projeto e instalar dependências** | Cria o `package.json` e instala as dependências básicas | `npm init -y` <br> `npm install` |
 | **4️⃣ Instalar o Cypress** | Instala o framework de testes | `npm install -D cypress` |
