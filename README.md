@@ -139,12 +139,14 @@ Antes de rodar os testes, é necessário ter instalado:
 
 ---
 
+---
+
 ## ✍️ Assinatura do QA
 
 **Eduardo Ferreira**  
-*Analista de testes*  
+*Quality Assurance (QA) Engineer*  
 🔗 *Automação de Testes | API | Cypress | JavaScript*  
+🌐 [LinkedIn – Eduardo Ferreira](https://www.linkedin.com/in/edufgs/)  
 📅 Projeto desenvolvido para fins educacionais e de prática em automação de testes.
 
 ---
-
