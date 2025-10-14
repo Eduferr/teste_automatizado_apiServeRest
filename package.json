@@ -1,0 +1,25 @@
+{
+  "name": "teste_automatizado_apiserverest",
+  "version": "1.0.0",
+  "description": "Automação de teste API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eduferr/teste_automatizado_apiServeRest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Eduferr/teste_automatizado_apiServeRest/issues"
+  },
+  "homepage": "https://github.com/Eduferr/teste_automatizado_apiServeRest#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "cypress": "^15.4.0"
+  }
+}
