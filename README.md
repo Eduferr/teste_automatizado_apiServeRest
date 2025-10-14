@@ -113,7 +113,7 @@ Antes de rodar os testes, é necessário ter instalado:
 | **5️⃣ Instalar o Faker.js** | Gera dados dinâmicos (nomes, e-mails, etc.) | `npm install @faker-js/faker` |
 | **6️⃣ Instalar o Joi** | Faz a validação de contratos (schemas JSON) | `npm install joi` |
 | **7️⃣ Instalar o ServeRest (globalmente)** | API simulada utilizada nos testes | `npm install -g serverest` |
-| **8️⃣ Iniciar o ServeRest localmente** | Inicia o servidor local da API | `serverest` |
+| **8️⃣ Iniciar o ServeRest localmente** | Inicia o servidor local da API | `npx serverest` |
 |  |  | 🔸 O ServeRest rodará em: **http://localhost:3000** |
 
 ---
