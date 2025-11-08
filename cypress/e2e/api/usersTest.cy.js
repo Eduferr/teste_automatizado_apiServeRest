@@ -7,13 +7,11 @@ const usersSchema = require('../../schemas/usersSchema');
 // Início da suíte de testes para funcionalidades relacionadas a usuários
 describe('Suite de Teste - Funcionalidades Usuários', () => {
 
-  //this não funciona como esperado dentro de arrow functions (() => {}), por isso usamos function() {}
   beforeEach(function () {
     cy.fixture('loginData').as('loginData');
-  });
-  
+  });  
 
-  it('Deve fazer login com sucesso usando classe de ação', function () {
+  it('Deve fazer login com sucesso', function () {
     const { email, password } = this.loginData.dadosUsuario;
 
     userActions.login(email, password).then((response) => {
@@ -22,7 +20,6 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
       cy.log(response.body.authorization); // Mostra o token de autorização no log do Cypress
     });
   });
-
 
   it('Deve cadastrar um usuário com sucesso', () => {
     const { nomeCompleto, email, senha, admin } = gerarDadosUsuario();
@@ -33,7 +30,6 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
         expect(response.body.message).to.equal('Cadastro realizado com sucesso');
       });
   });
-
 
   it('Deve validar um usuário com email inválido', () => {
     const { nomeCompleto, email, senha, admin } = gerarDadosUsuario(); //gerando o objeto com dados do usuário
@@ -58,7 +54,6 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
     });
   });
 
-
   it('Deve deletar um usuário previamente cadastrado', () => {
     const { nomeCompleto, email, senha, admin } = gerarDadosUsuario();
 
@@ -74,13 +69,11 @@ describe('Suite de Teste - Funcionalidades Usuários', () => {
       });
   });
 
-
   it('Deve validar contrato de usuários', () => {
 
     cy.request('usuarios').then(response => {
       return usersSchema.validateAsync(response.body)
     })
   });
-
 
 });
