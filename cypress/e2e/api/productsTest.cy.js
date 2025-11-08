@@ -4,7 +4,6 @@ const productsSchema = require('../../schemas/productsSchema');
 const productActions = require('../../support/actions/productActions');
 const { gerarDadosProduto } = require("../../utils/fakerUtils");
 
-
 describe('Testes de API - Produtos', () => {
 
     beforeEach(() => {

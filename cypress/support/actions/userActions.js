@@ -2,7 +2,7 @@
 const FakerUtils = require('../../utils/fakerUtils');
 
 class userActions {
-    //Método para realizar login via API
+
     login(email, password) {
         return cy.request({
             method: 'POST',
@@ -42,6 +42,5 @@ class userActions {
             failOnStatusCode: false
         });
     }
-
 }
 module.exports = new userActions();

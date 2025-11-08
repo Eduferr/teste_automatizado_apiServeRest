@@ -1,5 +1,6 @@
 
 class ProductActions {
+    
     cadastrarProduto(token, nome, preco, descricao, quantidade) {
         return cy.request({
             method: 'POST',
